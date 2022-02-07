@@ -109,7 +109,8 @@ function download_pkg_dbs() {
 	     echo "***  will use local pkg db - it may be outdated though"
 	     continue
 	   else
-	     exit_error "* ERROR: ${PKGLISTFILE} is missing"
+	     #exit_error "* ERROR: ${PKGLISTFILE} is missing"
+	     echo "ERROR: ${PKGLISTFILE} is missing"
 	   fi
 	 fi
 	 if [ "$PETPKG" ] ; then
