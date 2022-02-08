@@ -110,7 +110,7 @@ function download_pkg_dbs() {
 	     continue
 	   else
 	     #exit_error "* ERROR: ${PKGLISTFILE} is missing"
-             echo "ERROR: ${PKGLISTFILE} is missing"
+             echo "ERROR: ${PKGLISTFILE} is missing :("
 	   fi
 	 fi
 	 if [ "$PETPKG" ] ; then
