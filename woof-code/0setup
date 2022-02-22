@@ -109,8 +109,7 @@ function download_pkg_dbs() {
 	     echo "***  will use local pkg db - it may be outdated though"
 	     continue
 	   else
-	     #exit_error "* ERROR: ${PKGLISTFILE} is missing"
-	     echo "ERROR: ${PKGLISTFILE} is missing :("
+	     exit_error "* ERROR: ${PKGLISTFILE} is missing"
 	   fi
 	 fi
 	 if [ "$PETPKG" ] ; then
@@ -330,8 +329,7 @@ if [ "$SETUPCALLEDFROM" = "ppm" ];then
 fi
 
 echo -e "\nChecking pkgs"
-#support/findpkgs || exit 1
-support/findpkgs || echo "we don't have all the packages but cest la vie"
+support/findpkgs || exit 1
 if [ -s FINDPKGS-NOT-FOUND.log ]; then
   grep 'was not found' FINDPKGS-NOT-FOUND.log  | sort -u
   exit 1
