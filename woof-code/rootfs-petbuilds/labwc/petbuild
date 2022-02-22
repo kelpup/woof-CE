@@ -1,12 +1,12 @@
 download() {
     [ -f xorgproto-2021.5.tar.gz ] || wget -t 3 -T 60 https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.5.tar.gz
     [ -f libxcvt-0.1.1.tar.xz ] || wget -t 3 -T 60 https://xorg.freedesktop.org/releases/individual/lib/libxcvt-0.1.1.tar.xz
-    [ -f xwayland-22.0.99.901.tar.xz ] || wget -t 3 -T 60 https://xorg.freedesktop.org/archive/individual/xserver/xwayland-22.0.99.901.tar.xz
+    [ -f xwayland-22.1.0.tar.xz ] || wget -t 3 -T 60 https://xorg.freedesktop.org/archive/individual/xserver/xwayland-22.1.0.tar.xz
     [ -f seatd-0.5.0.tar.gz ] || wget -t 3 -T 60 -O seatd-0.5.0.tar.gz https://git.sr.ht/~kennylevinsen/seatd/archive/0.5.0.tar.gz
     [ -f wayland-protocols-1.24.tar.xz ] || wget -t 3 -T 60 https://wayland.freedesktop.org/releases/wayland-protocols-1.24.tar.xz
     [ -f wayland-1.20.0.tar.xz ] || wget -t 3 -T 60 https://wayland.freedesktop.org/releases/wayland-1.20.0.tar.xz
-    [ -f wlroots-0.15.0.tar.gz ] || wget -t 3 -T 60 https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.15.0/wlroots-0.15.0.tar.gz
-    [ -f labwc-416718c3e9f69f2b1965b5e98945c780ec9c686f.zip ] || wget -t 3 -T 60 -O labwc-416718c3e9f69f2b1965b5e98945c780ec9c686f.zip https://github.com/labwc/labwc/archive/416718c3e9f69f2b1965b5e98945c780ec9c686f.zip
+    [ -f wlroots-0.15.1.tar.gz ] || wget -t 3 -T 60 https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.15.1/wlroots-0.15.1.tar.gz
+    [ -f labwc-6a3536cdd74ec1d73475daec166b14c03ce14a8a.zip ] || wget -t 3 -T 60 -O labwc-6a3536cdd74ec1d73475daec166b14c03ce14a8a.zip https://github.com/labwc/labwc/archive/6a3536cdd74ec1d73475daec166b14c03ce14a8a.zip
     [ -f swaybg-1.1.tar.gz ] || wget -t 3 -T 60 https://github.com/swaywm/swaybg/releases/download/v1.1/swaybg-1.1.tar.gz
     [ -f grim-1.3.2.tar.gz ] || wget -t 3 -T 60 https://github.com/emersion/grim/releases/download/v1.3.2/grim-1.3.2.tar.gz
     [ -f swayidle-1.7.1.tar.gz ] || wget -t 3 -T 60 https://github.com/swaywm/swayidle/releases/download/1.7.1/swayidle-1.7.1.tar.gz
@@ -39,8 +39,8 @@ build() {
     ninja -C build install
     cd ..
 
-    tar -xJf xwayland-22.0.99.901.tar.xz
-    cd xwayland-22.0.99.901
+    tar -xJf xwayland-22.1.0.tar.xz
+    cd xwayland-22.1.0
     meson --buildtype=release --prefix=/usr -Ddpms=true -Ddri3=true -Dglamor=true -Dglx=true -Dmitshm=true -Dscreensaver=true -Dxvfb=false -Dxwayland_eglstream=true build
     ninja -C build install
     cd ..
@@ -59,15 +59,15 @@ build() {
 
     export PKG_CONFIG_PATH="/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-    tar -xzf wlroots-0.15.0.tar.gz
-    cd wlroots-0.15.0
+    tar -xzf wlroots-0.15.1.tar.gz
+    cd wlroots-0.15.1
     patch -p1 < ../bullseye.patch
     meson --buildtype=release --prefix=/usr --default-library=static -Dxwayland=enabled -Dbackends=drm,libinput build
     ninja -C build install
     cd ..
 
-    unzip labwc-416718c3e9f69f2b1965b5e98945c780ec9c686f.zip
-    cd labwc-416718c3e9f69f2b1965b5e98945c780ec9c686f
+    unzip labwc-6a3536cdd74ec1d73475daec166b14c03ce14a8a.zip
+    cd labwc-6a3536cdd74ec1d73475daec166b14c03ce14a8a
     patch -p1 < ../root.patch
     patch -p1 < ../deps.patch
     meson --buildtype=release --prefix=/usr -Dxwayland=enabled build
@@ -114,6 +114,7 @@ build() {
     cd ..
 
     $CC $CFLAGS altf1d.c $LDFLAGS -o /usr/bin/altf1d
+    $CC $CFLAGS numlockt.c $LDFLAGS -o /usr/bin/numlockt
 
     rm -rf /usr/share/wayland-protocols /usr/share/pkgconfig /usr/share/aclocal /usr/share/wayland /usr/share/wayland /usr/bin/wayland-scanner /usr/bin/cvt /usr/lib/pkgconfig /usr/include /usr/share/man/man1/cvt.1 /usr/share/doc/xorgproto
 }

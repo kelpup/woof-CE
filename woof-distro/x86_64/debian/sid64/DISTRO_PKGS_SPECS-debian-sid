@@ -250,7 +250,7 @@ no|inkscapelite||exe,dev,doc,nls
 no|inotify-tools|inotify-tools,libinotifytools0|exe,dev,doc,nls
 yes|installwatch|checkinstall|exe>dev,dev,doc,nls||deps:yes
 yes|intltool|intltool|exe>dev,dev,doc,nls||deps:yes #previously only in devx, but need in main f.s. to run momanager without devx.
-yes|iptables|iptables,libip4tc2,libip6tc2,libxtables12,libnftnl11|exe,dev,doc,nls||deps:yes
+yes|iptables|iptables,libip4tc2,libip6tc2,libxtables12,libnftnl11|exe,dev>exe,doc,nls||deps:yes
 no|iso-codes|iso-codes|exe,dev,doc,nls #needed by gstreamer. very big. GSTREAMER1.0 GSTREAMER0.10
 no|isomaster|isomaster|exe,dev,doc,nls
 yes|iw|iw|exe,dev,doc,nls||deps:yes
@@ -338,7 +338,7 @@ yes|libidn2|libidn2-0,libidn2-dev|exe,dev,doc,nls||deps:yes
 no|libieee1284|libieee1284-3|exe,dev,doc,nls
 no|libimlib|libimlib2,libimlib2-dev|exe,dev,doc,nls
 no|libindicator|libindicator7,libindicator-dev|exe,dev,doc,nls #needed by libappindicator.
-yes|libinput|libinput10,libinput-bin,libinput-dev,libwacom2,libwacom-dev|exe,dev,doc,nls||deps:yes
+yes|libinput|libinput10,libinput-bin,libinput-dev,libwacom9,libwacom-dev|exe,dev,doc,nls||deps:yes
 no|libjack|libjack0,libjack-dev|exe,dev,doc,nls||deps:yes
 no|libjansson4|libjansson4,libjansson-dev|exe,dev,doc,nls
 yes|libjpeg62|libjpeg62-turbo,libjpeg62-turbo-dev,libjpeg-dev|exe,dev,doc,nls||deps:yes
@@ -543,6 +543,7 @@ no|perl-uri|liburi-perl|exe>dev,dev||deps:yes
 no|perl-xml-parser|libxml-parser-perl|exe>dev,dev||deps:yes
 no|perl-xml-simple|libxml-simple-perl|exe>dev,dev||deps:yes
 no|picocom|picocom|exe,dev
+yes|pipewire|pipewire-pulse,libspa-0.2-bluetooth|exe,dev,doc,nls||deps:yes
 yes|pigz|pigz|exe,dev,doc,nls||deps:yes
 yes|pixman|libpixman-1-0,libpixman-1-dev|exe,dev||deps:yes
 yes|pkgconfig|pkg-config|exe>dev,dev||deps:yes
@@ -556,7 +557,7 @@ no|ppp|ppp|exe,dev>null
 no|pptp|pptp-linux|exe,dev,doc,nls
 yes|procps|procps,libprocps8|exe,dev,doc,nls||deps:yes
 yes|psmisc|psmisc|exe,dev>null,doc,nls||deps:yes
-yes|pulseaudio|pulseaudio,libpulse-mainloop-glib0,libpulse0,libpulse-dev,libwebrtc-audio-processing1,pulseaudio-utils,pulseaudio-module-bluetooth|exe,dev,doc,nls||deps:yes #needed by mplayer, gnome-mplayer and gmtk
+yes|pulseaudio|libpulse0,libpulse-dev,pulseaudio-utils|exe,dev,doc,nls||deps:yes #needed by mplayer, gnome-mplayer and gmtk
 no|psynclient||exe
 no|pupmixer||exe
 no|Pup-Kview||exe
@@ -642,6 +643,7 @@ yes|wayland|libwayland-client0,libwayland-cursor0,libwayland-server0,libwayland-
 no|wcpufreq||exe,dev| #using this instead of cpu-scaling-ondemand.
 yes|wget|wget|exe,dev>null,doc,nls||deps:yes
 yes|wireless-tools|wireless-tools,libiw30,libiw-dev|exe,dev,doc,nls||deps:yes
+yes|wireplumber|wireplumber|exe,dev,doc,nls||deps:yes
 no|wmctrl|wmctrl|exe,dev,doc,nls
 yes|wpa_supplicant|wpasupplicant|exe,dev>null,doc,nls||deps:yes
 no|wv|wv,libwv-1.2-4,libwv-dev|exe,dev,doc,nls
