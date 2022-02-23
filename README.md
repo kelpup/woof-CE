@@ -1,5 +1,6 @@
 # woof - the Puppy builder
 
+tried to branch back to original slacko build 
 Currently supported: [![Build status](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml/badge.svg)](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml)
 
 - Slackware
