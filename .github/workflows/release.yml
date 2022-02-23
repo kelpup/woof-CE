@@ -77,16 +77,6 @@ jobs:
       run: |
         cd ../woof-out_*
         echo | sudo -E ./2createpackages
-    - name: Choose kernel variant
-      id: choose_kernel_variant
-      run: |
-        cd ../woof-out_*
-        . _00build.conf
-        [ ! -e _00build_2.conf ] || . _00build_2.conf
-        name="kernel-kit-output-usrmerge-${{ github.event.inputs.kernel }}.x-${{ github.event.inputs.arch }}"
-        [ "$USR_SYMLINKS" = yes ] || name="kernel-kit-output-${{ github.event.inputs.kernel }}.x-${{ github.event.inputs.arch }}"
-        echo "::set-output name=artifact_name::$name"
-      shell: bash
     - name: Get cached kernel-kit output
       uses: dawidd6/action-download-artifact@v2
       with:
@@ -94,7 +84,7 @@ jobs:
         branch: testing
         workflow: kernel-kit.yml
         workflow_conclusion: success
-        name: ${{ steps.choose_kernel_variant.outputs.artifact_name }}
+        name: kernel-kit-output-${{ github.event.inputs.kernel }}.x-${{ github.event.inputs.arch }}
         path: output
     - name: Move cached kernel-kit output
       run: sudo mv output ../woof-out_*/kernel-kit/
@@ -119,9 +109,10 @@ jobs:
         cd ../woof-out_*
         sudo -E HOME=/root XDG_CONFIG_HOME=/root/.config ./3builddistro release
         sudo mv -f woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}/${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}.iso $GITHUB_WORKSPACE/
-        sudo mv -f kernel-kit/output/kbuild-*.sfs woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}/
-        cd woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}
-        sudo tar -f $GITHUB_WORKSPACE/${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}-extra.tar -c *{x,drv}_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs kbuild-*.sfs
+        sudo mv -f woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}/devx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs $GITHUB_WORKSPACE/
+        sudo mv -f woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}/docx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs $GITHUB_WORKSPACE/
+        sudo mv -f woof-output-${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}/nlsx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs $GITHUB_WORKSPACE/
+        sudo mv -f kernel-kit/output/kernel_sources-${{ github.event.inputs.kernel }}-kernel-kit.sfs $GITHUB_WORKSPACE/
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -141,14 +132,41 @@ jobs:
         asset_path: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}.iso
         asset_name: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}.iso
         asset_content_type: application/octet-stream
-    - name: Upload extras
+    - name: Upload devx
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}-extra.tar
-        asset_name: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}-extra.tar
+        asset_path: devx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_name: devx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_content_type: application/octet-stream
+    - name: Upload docx
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: docx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_name: docx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_content_type: application/octet-stream
+    - name: Upload nlsx
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: nlsx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_name: nlsx_${{ github.event.inputs.prefix }}_${{ github.event.inputs.version }}.sfs
+        asset_content_type: application/octet-stream
+    - name: Upload kernel sources
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: kernel_sources-${{ github.event.inputs.kernel }}-kernel-kit.sfs
+        asset_name: kernel_sources-${{ github.event.inputs.kernel }}-kernel-kit.sfs
         asset_content_type: application/octet-stream
     - name: Move cached directories
       run: sudo mv ../woof-out_*/petbuild-sources .
