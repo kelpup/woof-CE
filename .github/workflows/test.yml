@@ -1,15 +1,16 @@
-name: build
+# This is a basic workflow to help you get started with Actions
 
+name: test
+
+# Controls when the workflow will run
 on:
-  schedule:
-    - cron: '0 0 1,15 * *'
   workflow_dispatch:
-  workflow_run:
-    workflows: [kernel-kit]
-    branches: [testing]
-    types:
-      - completed
+  # Triggers the workflow on push or pull request events but only for the testing branch
+  # add this back in later!
+  #pull_request:
+  #  branches: [ lastbuild ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     if: (github.event_name != 'schedule') || (github.event_name == 'schedule' && github.repository == 'puppylinux-woof-CE/woof-CE' && github.ref == 'refs/heads/testing') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
@@ -21,6 +22,10 @@ jobs:
             compat-distro: ubuntu
             compat-distro-version: bionic64
             kernel: 4.19.x-x86_64
+          - arch: x86_64
+            compat-distro: ubuntu
+            compat-distro-version: bionic64
+            kernel: 5.15.x-x86_64
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -146,13 +151,3 @@ jobs:
           *.sfs
           *.img.gz
         retention-days: 15
-    - name: Upload ISO
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: |
-          *.iso
-        asset_name: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}.iso
-        asset_content_type: application/octet-stream
