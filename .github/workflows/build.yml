@@ -21,6 +21,10 @@ jobs:
             compat-distro: ubuntu
             compat-distro-version: bionic64
             kernel: 4.19.x-x86_64
+          - arch: x86_64
+            compat-distro: ubuntu
+            compat-distro-version: bionic64
+            kernel: 5.15.x-x86_64
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
