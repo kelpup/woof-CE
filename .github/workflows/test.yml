@@ -152,6 +152,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: *.iso
+        asset_path: |
+          *.iso
         asset_name: ${{ github.event.inputs.prefix }}-${{ github.event.inputs.version }}.iso
         asset_content_type: application/octet-stream
