@@ -7,6 +7,7 @@ bcrypt_DEV-1.1-x86_64_bionic|bcrypt_DEV|1.1-x86_64_bionic||BuildingBlock|4||bcry
 bluez-5.38-x86_64_bionic|bluez|5.38-x86_64_bionic||Network|4240||bluez-5.38-x86_64_bionic.pet||bluez is a set of utilities for bluetooth funcionality|ubuntu|bionic||
 bluez_DEV-5.38-x86_64_bionic|bluez_DEV|5.38-x86_64_bionic||Network|20||bluez_DEV-5.38-x86_64_bionic.pet|+bluez|bluez development|ubuntu|bionic||
 bluez_DOC-5.38-x86_64_bionic|bluez_DOC|5.38-x86_64_bionic||Network|80||bluez_DOC-5.38-x86_64_bionic.pet|+bluez|bluez documentation||||
+conky-gtk-1.0|conky-gtk|1.0||Desktop|56K||conky-gtk-1.0.pet||Simple changer for conky||||
 bluez-alsa-1.0-x86_64|bluez-alsa|1.0-x86_64||BuildingBlock|292K||bluez-alsa-1.0-x86_64.pet||no description provided|puppy|bionic||
 bluez-alsa_DEV-1.0-x86_64|bluez-alsa_DEV|1.0-x86_64||BuildingBlock|316K||bluez-alsa_DEV-1.0-x86_64.pet||no description provided|ubuntu|bionic||
 broadcom_sta-6.30.223.271_k4.19.23_amd|broadcom_sta|6.30.223.271_k4.19.23_amd||BuildingBlock|7504K||broadcom_sta-6.30.223.271_k4.19.23_amd.pet||broadcom WiFi wl kernel module||||
