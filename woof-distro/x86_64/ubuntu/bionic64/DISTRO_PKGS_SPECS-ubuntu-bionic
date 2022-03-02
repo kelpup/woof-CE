@@ -90,6 +90,8 @@ yes|claws-mail|claws-mail,claws-mail-multi-notifier,libcanberra-gtk0,libcompface
 yes|clipit||exe|
 yes|close||exe|
 yes|compton|compton,compton-conf,libconfig9|exe,dev,doc,nls
+yes|conky|conky-all,libaudclient2,libxmmsclient6,libxnvctrl0|exe,dev,doc,nls
+yes|conky-gtk||exe,dev,doc,nls
 yes|copy-fast||exe|
 yes|coreutils|coreutils|exe,dev>null,doc,nls
 yes|cmake|cmake,cmake-data,cmake-curses-gui|exe>dev,dev,doc,nls
@@ -101,6 +103,7 @@ yes|ctorrent|ctorrent|exe,dev>null,doc,nls
 yes|cups|cups-bsd,cups,cups-common,cups-core-drivers,cups-server-common,cups-client,cups-ppdc,libcups2,libcups2-dev,libcupsimage2,libcupsimage2-dev,libcupsmime1,libcupscgi1,libcupsppdc1,cups-daemon|exe,dev,doc>exe,nls
 yes|cups-filters|cups-filters,cups-filters-core-drivers,libcupsfilters1,libcupsfilters-dev,libfontembed1,libfontembed-dev|exe,dev,doc,nls| #extra cups filters, especially pdftops.
 yes|curl|curl,libcurl3,libcurl4,libidn2-0,libpsl5,libnghttp2-14,libcurl4-gnutls-dev,libcurl3-nss,libcurl4-nss-dev|exe,dev,doc,nls|
+yes|libcurl3-gnutls|libcurl3-gnutls|exe,dev,doc>null,nls>null| #this is needed by git in the devx sfs file. update: conky needs it in the main f.s.
 yes|cvs|cvs|exe>dev,dev,doc,nls
 yes|cyrus-sasl2|libsasl2-2,libsasl2-dev,libsasl2-modules-db|exe,dev,doc,nls
 yes|dash|dash|exe>dev,dev,doc,nls
