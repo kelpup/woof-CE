@@ -91,7 +91,6 @@ yes|clipit||exe|
 yes|close||exe|
 yes|compton|compton,compton-conf,libconfig9|exe,dev,doc,nls
 yes|conky|conky-all,libaudclient2,libxmmsclient6,libxnvctrl0|exe,dev,doc,nls
-yes|conky-gtk||exe,dev,doc,nls
 yes|copy-fast||exe|
 yes|coreutils|coreutils|exe,dev>null,doc,nls
 yes|cmake|cmake,cmake-data,cmake-curses-gui|exe>dev,dev,doc,nls
