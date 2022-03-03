@@ -1,2 +1,2 @@
 #!/bin/ash
-conky
+conky -c conky.conf
