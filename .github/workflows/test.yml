@@ -14,8 +14,8 @@ on:
 jobs:
   build:
     if: (github.event_name != 'schedule') || (github.event_name == 'schedule' && github.repository == 'puppylinux-woof-CE/woof-CE' && github.ref == 'refs/heads/testing') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
-    runs-on: self-hosted
-    #runs-on: ubuntu-20.04
+    #runs-on: self-hosted
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         include:
