@@ -1,0 +1,6 @@
+You can use 'pwd' to print your working directory
+You can go back to your home directory by simply typing 'cd'
+You can use tab for autocompletion on the terminal
+You can use 'ls' to list the contents of your current directory
+You can run multiple commands in one single command by doing command1; command2
+You can move to the beginning or end of the line by using Ctrl+A or Ctrl+E respectively
