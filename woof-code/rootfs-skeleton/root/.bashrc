@@ -18,6 +18,6 @@ TIP_NUM=$(($RANDOM % $NUM_LINES+1))
 echo "Welcome back! :) Here's a little Linux Command Line tip" 
 echo "Did you know that:";
 FLAG="${TIP_NUM}p"
-sed -n $FLAG .test.txt | echo
+sed -n $FLAG .tips.txt | echo
 
 
