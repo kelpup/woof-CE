@@ -24,11 +24,13 @@ Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDo
 The test workflow builds a x86_64, ubuntu focal64 puppy linux distribution with a 5.4.x-x86_64 kernel from the files in the branch that is input into it. It builds directly on GitHub, and uploads the ISO as a build artifact. 
 
 <img width="1107" alt="Screen Shot 2022-03-16 at 11 55 18 PM" src="https://user-images.githubusercontent.com/65368903/158733917-dd6fb32f-e3c6-4062-a0d5-dc2e3e14aafc.png">
+
 1. Go to GitHub Actions, and select Test
 2. Hit Run Workflow, then Run Workflow again
 3. Wait for the test to complete (20min-1hr) and a green checkmark appears
 4. Click on the test, and scroll down to the build artifacts and download the artifact
 5. Unzip the artifact, and the ISO will be in the resulting folder
+
 <img width="1139" alt="Screen Shot 2022-03-16 at 11 59 41 PM" src="https://user-images.githubusercontent.com/65368903/158734402-fc5fe4ea-f7d5-437b-a3d1-562b766f3f79.png">
 
 
