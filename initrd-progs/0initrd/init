@@ -157,7 +157,8 @@ check_status() #args: [-critical] $RET_VAL "$ERROR_MSG"
       exec /bin/sh >/dev/console 2>&1
     else
       echo "${L_PAUSING_60_SECONDS}" >/dev/console
-      sleep 60
+      #sleep 60
+	  sleep 5
     fi
   fi
 }
