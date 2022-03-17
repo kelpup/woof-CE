@@ -33,20 +33,6 @@ The test workflow builds a x86_64, ubuntu focal64 puppy linux distribution with 
 
 <img width="1139" alt="Screen Shot 2022-03-16 at 11 59 41 PM" src="https://user-images.githubusercontent.com/65368903/158734402-fc5fe4ea-f7d5-437b-a3d1-562b766f3f79.png">
 
-
-
-# Contributing to woof-CE: using Gitpod
-
-To modify woof-CE and push the changes to GitHub without having to set up a local development environment: [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/puppylinux-woof-CE/woof-CE)
-
-Not all of woof-CE can run [without root access](https://github.com/gitpod-io/gitpod/issues/39), but most of woof-CE works on Gitpod and it's possible to [boot Puppy inside QEMU and control it over VNC](https://www.gitpod.io/blog/native-ui-with-vnc/), all through the browser.
-
-To work on woof-CE in a fork, through Gitpod:
-
-1. Fork woof-CE.
-
-2. Browse to `https://gitpod.io/#https://github.com/your-github-username/woof-CE`.
-
 # Directory Structure
 
 Woof-CE has five directories:
@@ -57,57 +43,34 @@ Woof-CE has five directories:
 - kernel-kit  : scripts to download, patch, configure and build the kernel.
 - initrd-progs: scripts and files to generate the initial ramdisk
 
-To create a working directory, named `woof-out_*`, you first have to run the `merge2out` script. This merges the 5 directories into a directory named `woof-out_*`. You then `cd` into `woof-out_*` and run the build scripts.
+The majority of the code we modified was as follows:
 
-The great thing about this merge operation is that you can choose exactly what you want to go into woof-out. You can choose the host system that you are building on (usually x86_64), the target (exs: x86_64 x86, ARM), the compatible-distro (ex: slackware), and the compat-distro version (ex: 15.0). So, you create woof-out without any confusing inappropriate content.
+- woof-code   : modified the base filesystem, added things to the packages
+- woof-distro : modified the distro specification files  
 
-So, to get going with woof-CE, open a terminal and do this:
+# Build Scripts
 
-    ./merge2out
-    cd ../woof-out_*
+The GitHub workflows wrap around four main scripts that were originally designed to run via the commandline. 
+0. 0setup           - download package database files as specified in the puppy pet package files under woof-distro
+1. 1download        - download actual pet packages
+2. 2createpackages  - build the puppy packages
+3. 3builddistro     - build the ISO
 
-# Preparation
+All these are in woof-code. 
 
-1. Suitable build environment
-  - Linux partition (ext2/3/4)
-  - At least 6-10GBs of space
+# Where is...?
 
-2. Host operating system
-  - A recent Woof-CE puppy with the devx (compilers, headers and other development tools) installed. Otherwise use [run_woof](https://github.com/puppylinux-woof-CE/run_woof).
-  
-3. Choose a compatible-distro.
+woof-code
+* root filesystem in rootfs-skeleton
+* build scripts
+* packages with applications
 
-This is the distro whose packages you are going to 'borrow' to build your Puppy. Open file DISTRO_SPECS in a text editor and change this line:
+woof-distro
+* files that specify the pet packages you want for different distro builds
+* distro specification files seperated by folders (ex: focal is in ``woof-CE/woof-distro/x86_64/ubuntu/focal64/`)
 
-    DISTRO_BINARY_COMPAT="ubuntu"
-
-to what you want: `slackware`, `devuan`, `ubuntu`, `debian` or `puppy`.
-
-# Building a Puppy: using the commandline scripts
-
-Open a terminal in the `woof-out_*` directory.
-
-0. Download package database files
-
-       ./0setup
-
-OPTIONAL: Tweak common PET package selection. You can edit the variable PKGS_SPECS_TABLE in file `DISTRO_PKGS_SPECS-*` to choose the packages that you want in your build.
-
-1. Download packages
-
-       ./1download
-
-About 500MB drive space is required, but this may vary enormously depending on the package selection.
-
-2. Build the cut-down generic Puppy-packages
-
-       ./2createpackages
-
-3. Build Puppy live-CD
-
-       ./3builddistro
-
-This gets built in a directory named `sandbox3` and as well as the live-CD ISO file you will also find the individual built files and the `devx` file.
+init-progs
+* init script (spooky!)
 
 # TECHNICAL NOTES
 
@@ -169,19 +132,3 @@ I have put this comment into /etc/DISTRO_SPECS:
 
     #Note, the .sfs files below are what the `init` script in initrd.gz searches for,
     #for the partition, path and actual files loaded, see `PUPSFS` and `ZDRV` in /etc/rc.d/PUPSTATE
-
-# by 01micko
-
-Woof-CE, a fork of woof2 can build the same as woof2 however a new feature has been added as of today. It now has the ability to build a distro with out modules in the initrd.gz, a feature which had been pioneered by Fatdog  developers kirk and jamesbond. This has a number of advantages over the  legacy kernel builds.
-1. No messy copying kernel modules from the initial ram disk to the root system.
-2. Ease of changing kernels.
-
-I have named this the 'huge' type kernel, for want of a better term. The rationale for this is that Slackware developers name their default kernel `huge-$some_suffix`. The reason is that the vmlinuz kernel image contains all the necessary filesystem and hardware drivers to get the system to boot and hand over to the real running system. Once that occurs, kernel modules are loaded to bring up the rest of the hardware and extra filesystems if necessary.
-
-"kernel-kit", part of woof-CE, has the ability to produce one of these 'huge' style kernel packages. Please read the relevant  README and the comments in "build.conf" inside the kernel-kit directory.
-
-If you have built a "huge" style kernel with kernel-kit then place the package in the "huge_kernel" directory at the root of your woof installation. If not, one will be downloaded for you after you invoke 3builddistro from the CLI. You do get a choice of which version you want. Be sure you choose the correct architecure. All 32 bit builds are suffixed with either  i486, i686 or x86. All 64 bit builds are suffixed x86_64. At the end you will end up with an ISO image, devx and checksums as usual.
-
-Regards,
-Barry Kauler
-puppylinux.com
