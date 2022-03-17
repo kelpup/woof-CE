@@ -1,6 +1,6 @@
 # KelPup - a Puppy Linux distro for beginners
 
-[KelPup](https://kelpup.github.io/kelpup/Home/) is an in-development [woof-built](https://github.com/puppylinux-woof-CE/woof-CE) [Puppy Linux](https://puppylinux.com/) distribution targeted towards those interested in Linux but unsure of where to begin. It's designed to provide the experience of booting a Linux distro off of a USB, getting a taste for how Linux works, and giving the confidence to start exploring other distros. 
+[KelPup](https://kelpup.github.io/kelpup/Home/) is an in-development [woof-built](https://github.com/puppylinux-woof-CE/woof-CE) [Puppy Linux](https://puppylinux.com/) distribution targeted towards those interested in Linux but unsure of where to begin. It's designed to provide easy (ish!) instructions for booting a Linux distro off of a USB, getting a taste for how Linux works and is different from Windows or MacOS, and giving the confidence to start exploring other distros. 
 
 Testing: [![Build status](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml/badge.svg)](https://github.com/kelpup/woof-CE/actions/workflows/test.yml)
 
@@ -8,18 +8,25 @@ KelPup is built on top of [FossaPup64](https://blog.puppylinux.com/fossapup64-re
 
 KelPup is built using [woof-CE](https://github.com/puppylinux-woof-CE/woof-CE), a Puppy Linux distribution builder forked from Barry Kauler's woof2 by [the Puppy Linux github organization](https://github.com/puppylinux-woof-CE).
 
-# Contribute
+## Contribute
 
-1. Fork this fork of woof-CE
-2. Go to the Actions tab and enable actions
-3. Make any modifications you want! 
-4. Run the test workflow manually, with the branch with your modifications as the input
+1. Fork this fork of woof-CE to your own GitHub account
+2. Open your fork, go to the Actions tab and enable actions
+3. Make any modifications you want, either on lastbuild or your own branch! See the wiki or read below about the directory structure for guidance
+4. Run the test workflow manually (instructions below), with the branch with your modifications as the input
 6. Download the ISO from the build artifacts, install it, and test it out
-7. Open a pull request to kelpup/woof-CE!
+7. When you're happy with it, open a pull request and select kelpup/woof-CE!
 
-Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDownload.html) and [Windows](https://kelpup.github.io/kelpup/Instructions/WindowsDownload.html)
+Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDownload.html) and [Windows](https://kelpup.github.io/kelpup/Instructions/WindowsDownload.html).
 
-# Test Workflow
+### We need help with...
+
+* Bug reports - test out our latest ISO release out yourself and let us know what didn't go right 
+* Learning games - we'd like to include simple python learning games, if you'd like to make them ([Issue #27](https://github.com/kelpup/woof-CE/issues/27))
+* pTheme development - check out the pTheme page on the wiki for instructions and make some modifications to KelPup's "Pink Moon" pTheme ([Issue #24](https://github.com/kelpup/woof-CE/issues/24)
+* Ideas - a feature you think should be added, an idea that should be explained better, let us know!
+
+## Test Workflow
 
 The test workflow builds a x86_64, ubuntu focal64 puppy linux distribution with a 5.4.x-x86_64 kernel from the files in the branch that is input into it. It uses hte files in `woof-CE/woof-distro/x86_64/ubuntu/focal64/` to decide what to include and not include in the distro. It builds directly on GitHub, and uploads the ISO as a build artifact. 
 
@@ -33,7 +40,7 @@ The test workflow builds a x86_64, ubuntu focal64 puppy linux distribution with 
 
 <img width="1139" alt="Screen Shot 2022-03-16 at 11 59 41 PM" src="https://user-images.githubusercontent.com/65368903/158734402-fc5fe4ea-f7d5-437b-a3d1-562b766f3f79.png">
 
-# Directory Structure
+## Directory Structure
 
 Woof-CE has five directories:
 
@@ -48,17 +55,7 @@ The majority of the code we modified was as follows:
 - woof-code   : modified the base filesystem, added things to the packages
 - woof-distro : modified the distro specification files  
 
-# Build Scripts
-
-The GitHub workflows wrap around four main scripts that were originally designed to run via the commandline. 
-0. 0setup           - download package database files as specified in the puppy pet package files under woof-distro
-1. 1download        - download actual pet packages
-2. 2createpackages  - build the puppy packages
-3. 3builddistro     - build the ISO
-
-All these are in woof-code. 
-
-# Where is...?
+### Where is...?
 
 woof-code
 * root filesystem in rootfs-skeleton
@@ -72,6 +69,16 @@ woof-distro
 init-progs
 * init script (spooky!)
 
-# Technical notes
+## Build Scripts
+
+The GitHub workflows wrap around four main scripts that were originally designed to run via the commandline. 
+0. 0setup           - download package database files as specified in the puppy pet package files under woof-distro
+1. 1download        - download actual pet packages
+2. 2createpackages  - build the puppy packages
+3. 3builddistro     - build the ISO
+
+All these are in woof-code. 
+
+## Technical notes
 
 Check out the technical notes from the [original readme](https://github.com/kelpup/woof-CE/blob/lastbuild/PUPPY_README.md) by [the Puppy Linux github organization](https://github.com/puppylinux-woof-CE).
