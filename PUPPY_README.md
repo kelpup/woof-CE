@@ -1,11 +1,9 @@
-# woof-CE - the Puppy builder
+# woof - the Puppy builder
 
-[KelPup](https://kelpup.github.io/kelpup/Home/) is an in-development [woof-built](https://github.com/puppylinux-woof-CE/woof-CE) [Puppy Linux](https://puppylinux.com/) distribution targeted towards those interested in Linux but unsure of where to begin. It's designed to provide the experience of booting a Linux distro off of a USB, getting a taste for how Linux works, and giving the confidence to start exploring other distros. 
+branch to try to add conky 
 
-Testing: [![Build status](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml/badge.svg)](https://github.com/kelpup/woof-CE/actions/workflows/test.yml)
+Currently supported: [![Build status](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml/badge.svg)](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml)
 
-KelPup is built using [woof-CE](https://github.com/puppylinux-woof-CE/woof-CE), a Puppy Linux distribution builder. 
-Puppy Linux currently supports: [![Build status](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml/badge.svg)](https://github.com/puppylinux-woof-CE/woof-CE/actions/workflows/build.yml)
 - Slackware
 - Ubuntu
 - Debian
