@@ -72,63 +72,6 @@ woof-distro
 init-progs
 * init script (spooky!)
 
-# TECHNICAL NOTES
+# Technical notes
 
-## History
-
-Woof-CE (woof-Community Edition) is  a fork of Barry Kauler's woof2 fossil repository of Nov 11, 2013 commit f6332edbc4a75c262a8fec6e7d39229b0acf32cd.
-
-## packages-templates directory
-
-any directory in the template, the files in the target pkg will be cut down to the same selection (even if empty dir). Exception, file named `PLUSEXTRAFILES` then target will have all files from deb.
-
-- 0-size file, means get file of same name from deb (even if in different dir) to target.
-- Non-zero file, means copy this file from template to target.
-- Template files with `-FULL` suffix, rename target file also (exs: in coreutils, util-linux).
-  
-Any dir in template with `PKGVERSION` in name, substitute actual pkg version number in target dir. Except for /dev, /var, all dirs in target are deleted to only those in template, except if file `PLUSEXTRADIRS` is found in template.
-  
-As a last resort, if target pkg is wrong, a file `FIXUPHACK` is a script that can be at top dir in template. It executes in target, with current-dir set to where `FIXUPHACK` is located. (ex: perl_tiny). Ran into problem slackware post-install scripts messing things up. See near bottom of '2createpackages' how damage is limited. Also `DISABLE_POST_INSTALL_SCRIPT=yes` in `FIXUPHACK` to disable entirely.
-  
-If a dir in template has files in it then target is cut down (unless `PLUSEXTRAFILES` present), however there are some exceptions (such as .so regular files).
-
-## Packages-puppy-*
-
-Notice that there are `Packages-puppy-noarch-official`, also `Packages-puppy-common-official`
-
-The single-digit `-2-`, `-3-`, `-4-`, `-5-` files reside on ibiblio.org also. These files list the complete contents of each repository.
-
-## Puppy filenames
-
-The main Puppy files are:
-
-    vmlinuz, initrd.gz, puppy.sfs, zdrv.sfs, fdrv.sfs, adrv.sfs, ydrv.sfs
-
-Versioning is put into the last two, for example:
-
-    vmlinuz, initrd.gz, puppy_slacko_7.0.0, zdrv_slacko_7.0.0.sfs fdrv_slacko_7.0.0.sfs, adrv_slacko_7.0.0.sfs, ydrv_slacko_7.0.0.sfs
-
-...those last two names are intended to be unique for that build of Puppy, so they can be found at bootup.
-
-## DISTRO_SPECS file
-
-The filenames are stored in the built Puppy, in /etc/DISTRO_SPECS.
-For example:
-
-    DISTRO_PUPPYSFS='puppy_slacko_7.0.0.sfs'
-    DISTRO_ZDRVSFS='zdrv_slacko_7.0.0.sfs'
-    DISTRO_FDRVSFS='fdrv_slacko_7.0.0.sfs'
-    DISTRO_ADRVSFS='adrv_slacko_7.0.0.sfs'
-    DISTRO_YDRVSFS='ydrv_slacko_7.0.0.sfs'
-
-So, any script that wants to know what the names are can read these variables.
-
-Woof 3builddistro also copies DISTRO_SPECS into the initrd.gz, so that the `init` script can see what files to search for.
-
-However, in a running Puppy, you can find out the filenames in the way that scripts have done before, by reading `PUPSFS` and `ZDRV` variables in /etc/rc.d/PUPSTATE.
-
-In fact, to clarify the difference between these two sets of variables,
-I have put this comment into /etc/DISTRO_SPECS:
-
-    #Note, the .sfs files below are what the `init` script in initrd.gz searches for,
-    #for the partition, path and actual files loaded, see `PUPSFS` and `ZDRV` in /etc/rc.d/PUPSTATE
+Check out the technical notes from the [original readme](https://github.com/kelpup/woof-CE/blob/lastbuild/PUPPY_README.md) by [the Puppy Linux github organization](https://github.com/puppylinux-woof-CE).
