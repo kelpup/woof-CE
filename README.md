@@ -23,7 +23,7 @@ Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDo
 
 * Bug reports - test out our latest ISO release out yourself and let us know what didn't go right 
 * Learning games - we'd like to include simple python learning games, if you'd like to make them ([Issue #27](https://github.com/kelpup/woof-CE/issues/27))
-* pTheme development - check out the pTheme page on the wiki for instructions and make some modifications to KelPup's "Pink Moon" pTheme ([Issue #24](https://github.com/kelpup/woof-CE/issues/24)
+* pTheme development - check out the pTheme page on the wiki for instructions and make some modifications to KelPup's "Pink Moon" pTheme ([Issue #24](https://github.com/kelpup/woof-CE/issues/24))
 * Ideas - a feature you think should be added, an idea that should be explained better, let us know!
 
 ## Test Workflow
