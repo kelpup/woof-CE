@@ -1,0 +1,20 @@
+Why learn Python? Because it's easy to learn and you can do almost anything with it! 
+
+What can you do with Python?
+  - grab any sort of info from the web you want with the Beautiful Soup library functions
+  - make a neural network and train it to know cats from dogs with Tensorflow library
+  - create a 2D video game with the Arcade library  
+  - almost anything, really!
+  
+  Who uses Python?
+  - NASA
+  - Spotify
+  - Pixar
+  - you, maybe!
+  
+The Python Tutorial is a comprehensive guide to using python- it'll teach you anything and 
+everything you want to know about using Python.
+
+Or, get started right away; just type python3 into your terminal to start the python
+interpreter, where you can test out functions like print("Hello, world!"). Remember you 
+can quit the interpreter by typing in quit() or exit().
