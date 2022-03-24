@@ -1,20 +1,22 @@
-VIM - lets you edit text files, included in most UNIX systems
-
+VIM
+ - lets you edit text files, included in most UNIX systems
+ - why learn? because almost any UNIX machine, new or old will have Vim
+-----------------------------------------------------------------------
 say you have a script file.sh; you can open it by typing:
     vim file.sh
 
 then you're viewing the file in --NORMAL-- mode
 things you type will be commands that appear on the bottom right
-
+-----------------------------------------------------------------------
 if you want to edit your file, you enter --INSERT-- mode:
     hit the [i] button
-
+-----------------------------------------------------------------------
 when you're done editing it, you can enter --NORMAL-- mode: 
     hit the [esc] button
-
+-----------------------------------------------------------------------
 to save your changes, type in --NORMAL-- mode:
     :wq
-
+    
 this stands for write quit; write your changes to the file, quit vim
-
+-----------------------------------------------------------------------
 see vim_cheat_sheet.txt for more advanced instructions :)
