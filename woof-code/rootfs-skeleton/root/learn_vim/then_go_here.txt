@@ -1,0 +1,28 @@
+VIM - more advanced
+
+vim lets you execute commands in the --NORMAL-- mode
+-----------------------------------------------------------------------
+COPY AND PASTE:
+1. enter --NORMAL-- mode by hitting the [esc] button
+2. use the arrow keys to move the cursor over the line you want to copy
+3. hit the [y] key twice, like this:
+    yy
+4. now it's in your buffer; use the arrow keys to move your cursor to
+   the line you want to paste on
+5. hit the [p] key once, like this:
+    p
+
+your new line will appear
+-----------------------------------------------------------------------
+SEARCH:
+1. enter --NORMAL-- mode by hitting the [esc] button
+2. type in a /, you will see it appear at the bottom left
+3. type in the (case sensitive!) pattern you want to search for
+4. hit the [ENTER] button
+
+your cursor will move to the first instance of that pattern in the file
+
+5. to move on to the next instance, hit / and [ENTER] again, and your 
+   cursor will move to the next instance of the pattern 
+-----------------------------------------------------------------------
+see vim_cheat_sheet.txt for more advanced instructions :)
