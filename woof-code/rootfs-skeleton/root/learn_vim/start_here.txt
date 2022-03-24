@@ -10,6 +10,8 @@ things you type will be commands that appear on the bottom right
 -----------------------------------------------------------------------
 if you want to edit your file, you enter --INSERT-- mode:
     hit the [i] button
+    
+your mouse might not work, but use the arrow keys to get around
 -----------------------------------------------------------------------
 when you're done editing it, you can enter --NORMAL-- mode: 
     hit the [esc] button
