@@ -21,4 +21,4 @@ to save your changes, type in --NORMAL-- mode:
     
 this stands for write quit; write your changes to the file, quit vim
 -----------------------------------------------------------------------
-see vim_cheat_sheet.txt for more advanced instructions :)
+see then_go_here.txt for more advanced instructions :)
