@@ -21,6 +21,7 @@ Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDo
 
 ### We need help with...
 
+* Linux Tips - add some new Linux / command line navigation tips to our list of tips ([Issue #35](https://github.com/kelpup/woof-CE/issues/35)) (easy guru point ;))
 * Bug reports - test out our latest ISO release out yourself and let us know what didn't go right 
 * Learning games - we'd like to include simple python learning games, if you'd like to make them ([Issue #27](https://github.com/kelpup/woof-CE/issues/27))
 * pTheme development - check out the pTheme page on the wiki for instructions and make some modifications to KelPup's "Pink Moon" pTheme ([Issue #24](https://github.com/kelpup/woof-CE/issues/24))
