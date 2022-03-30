@@ -2,10 +2,13 @@
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
 
+# Alias
+alias vim='vim.basic'
+
+
 # Modifying Prompt
 export PS1="\[\e[33m\][\[\e[m\]\[\e[31m\]kelpup\[\e[m\] running \[\e[35m\]bash\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[36m\]\w\[\e[m\] \[\e[34m\]\\$\[\e[m\] "
 
-# Trying to add tip everytime user opens command line
 
 # Getting number of lines (tips) in text file
 NUM_LINES=$(cat /root/.tips.txt | wc -l)
