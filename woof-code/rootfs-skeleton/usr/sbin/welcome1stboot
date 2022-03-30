@@ -6,7 +6,7 @@ export OUTPUT_CHARSET=UTF-8
 
 . /etc/DISTRO_SPECS
 W_MSG="$(gettext "Welcome,
-This is the first time you are running ${DISTRO_NAME}!...")"
+This is the first time you are running Kelpup!...")"
 
 if check_internet ; then
 	LABEL_INTERNET="$(gettext "Congratulations, you seem to be connected to the Internet. Experiment with mouse-over, left-click and right-click on the 'network' icon in the tray. Click on the icon on the right (or on the desktop) if you need to reconfigure the Internet connection")"
@@ -27,7 +27,7 @@ export WELCOME_DIALOG='
 <window title="'$(gettext 'Welcome')'" icon-name="gtk-info" resizable="false">
 <vbox>
 	<hbox border-width="7" space-expand="true" space-fill="true">
-      <pixmap icon_size="4"><input file>/usr/share/doc/puppylogo96.png</input></pixmap>
+      <pixmap icon_size="4"><input file>/usr/share/doc/kelpup.png</input></pixmap>
       <text use-markup="true"><label>"<big>'"${W_MSG}"'</big>"</label></text>
     </hbox>
     <hbox border-width="7" space-expand="true" space-fill="true">
@@ -53,17 +53,6 @@ export WELCOME_DIALOG='
     </hbox>
     <hseparator></hseparator>
 
-    <hbox border-width="7" space-expand="true" space-fill="true">
-      <text space-expand="false" space-fill="false"><label>""</label></text>
-      <text xalign="0" use-markup="true" space-expand="true" space-fill="true"><label>"'"${LABEL_NEEDHELP}"'"</label></text>
-      <vbox space-expand="false" space-fill="false">
-        <text space-expand="false" space-fill="false"><label>""</label></text>
-        <button>
-         '$(/usr/lib/gtkdialog/xml_button-icon help.svg huge)'
-         <action>basichtmlviewer file:///usr/share/doc/index.html & </action>
-        </button>
-      </vbox>
-    </hbox>
     <hbox border-width="7" space-expand="true" space-fill="true">
       <pixmap><input file>/usr/share/doc/tray.png</input></pixmap>
       <text xalign="0" use-markup="true" space-expand="true" space-fill="true"><label>"'$(gettext "...mouse-over and click the tray applets!")'"</label></text>
