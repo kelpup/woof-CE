@@ -1,7 +1,0 @@
-Hello, there!
-
-Welcome to KelPup! You're in the Terminal Emulator. 
-
-Check it out, we wrote a script to run Python whenever we start up... scripts in the Startup folder run at boot. You can get rid of the python3 line in Startup/conky.sh. Or, add your own thing! 
-
-Try print("Hello, world!") :)
