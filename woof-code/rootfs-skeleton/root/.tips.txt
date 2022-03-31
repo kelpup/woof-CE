@@ -5,3 +5,4 @@ You can use 'ls' to list the contents of your current directory
 You can run multiple commands in one single command by doing command1; command2
 You can move to the beginning or end of the line by using Ctrl+A or Ctrl+E respectively
 The light blue text you see in the terminal is the path to your current directory
+You can send the output of one command to the input of another by using '|' example: echo "hello world" | grep -E 'h'
