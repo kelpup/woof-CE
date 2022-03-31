@@ -20,6 +20,10 @@ def timed_print(string, delay):
         time.sleep(delay)
     print()
 
+def pwd_python():
+	cwd = os.getcwd()
+	return(cwd)
+
 # Print the introduction text
 def print_pwd(path):
 
@@ -44,7 +48,7 @@ def get_user_choice():
         timed_print(string, time_var)
         return(get_user_choice())
     timed_print(string, time_var)
-    print_line('#', line_num)
+#    print_line('#', line_num)
     return(correct)
 
 def main():
