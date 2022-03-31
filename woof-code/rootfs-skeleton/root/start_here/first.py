@@ -33,9 +33,11 @@ def main():
     #print_line('#', 50)
     text_time = 0.08
     timed_print('Welcome to your first introduction to Linux!', text_time)
-    timed_print('We are so glad you chose Kelpup as your beginning distribution.', text_time)
+    timed_print('We are so glad you chose Kelpup as your beginning distribution!', text_time)
     
 
 
 if __name__ == '__main__':
 	main()
+
+# vim: set sts=4 sw=4 ts=8 expandtab ft=python:

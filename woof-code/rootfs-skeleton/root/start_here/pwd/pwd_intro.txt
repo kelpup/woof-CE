@@ -1,0 +1,5 @@
+Our very first Linux command is going to be 'pwd'. 
+This command gives you the absolute path of the directory you are currently in. 
+Think about it like the folder you're in on a Windows or MacOS file system. 
+Try running the command yourself, and see what folder you're currently sitting in! Simply enter:
+    - 'pwd'

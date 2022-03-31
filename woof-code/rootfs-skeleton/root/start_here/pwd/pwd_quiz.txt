@@ -1,0 +1,4 @@
+Congratulations! You've just run your first Linux command!
+We totally trust you, but we'd like to check to make sure you're actually following along. 
+If you don't mind, please enter the outputted string in the prompt below. 
+(We'll be having little quizzes like this throughout to make sure you're learning!)
