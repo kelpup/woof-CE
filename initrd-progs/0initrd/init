@@ -20,7 +20,7 @@ L_FAILED="failed"
 L_DUMPING_BOOTINIT_LOG="Dumping last lines of /tmp/bootinit.log..."
 L_DUMPING_KERNEL_LOG="Dumping last lines of kernel log..."
 L_ERROR_IS_TOO_CRITICAL="Error is too critical, dropping out to console..."
-L_PAUSING_60_SECONDS="Pausing for 5 seconds..."
+L_PAUSING_60_SECONDS="Pausing for 60 seconds..."
 L_LOADING_FILE="Loading the '%s' %s file..." #printf
 L_LOADING_SAVE_ARCHIVE='Loading save-archive %s [%s]...' #printf
 L_LOADING_PUPSAVE='Loading savefolder %s [%s]...' #printf
@@ -157,8 +157,8 @@ check_status() #args: [-critical] $RET_VAL "$ERROR_MSG"
       exec /bin/sh >/dev/console 2>&1
     else
       echo "${L_PAUSING_60_SECONDS}" >/dev/console
-      #sleep 60
-	  sleep 5
+      sleep 60
+	  #sleep 5
     fi
   fi
 }
