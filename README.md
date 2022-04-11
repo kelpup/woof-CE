@@ -15,7 +15,7 @@ KelPup is built using [woof-CE](https://github.com/puppylinux-woof-CE/woof-CE), 
 3. Make any modifications you want, either on lastbuild or your own branch! See the wiki or read below about the directory structure for guidance
 4. Run the test workflow manually (instructions below), with the branch with your modifications as the input
 6. Download the ISO from the build artifacts, install it, and test it out
-7. When you're happy with it, open a pull request and select kelpup/woof-CE!
+7. When you're happy with it, open a pull request and select kelpup/woof-CE
 
 Installation info for [MacOS](https://kelpup.github.io/kelpup/Instructions/MacDownload.html) and [Windows](https://kelpup.github.io/kelpup/Instructions/WindowsDownload.html).
 
