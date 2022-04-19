@@ -1,0 +1,4 @@
+After you've done this, you should notice that the directories and files are shown.
+To prove you've mastered the ls command, fill out the prompt below which asks for the files and directories in the current directory. 
+Answer one at a time, making sure to copy the file and directory names exactly as they appear at the output of your ls command. 
+Have fun!

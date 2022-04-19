@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 import time
 import sys
@@ -31,9 +31,11 @@ def ls_python():
 def main():
 	# timed_print("Hello, there :)", 0.08)
     #print_line('#', 50)
-    text_time = 0.08
+    text_time = 0.05
     timed_print('Welcome to your first introduction to Linux!', text_time)
-    timed_print('We are so glad you chose Kelpup as your beginning distribution!', text_time)
+    timed_print('We are so glad you chose Kelpup as your beginning distribution.', text_time)
+    timed_print('When running these games, you want to have two terminals open at the same time, and make sure both terminals are in the same directory', text_time)
+    timed_print('Enjoy!! :)', text_time)
     
 
 

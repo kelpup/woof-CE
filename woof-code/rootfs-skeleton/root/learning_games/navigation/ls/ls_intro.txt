@@ -1,0 +1,5 @@
+The next command we want to cover is called "ls". 
+This command will list every file within your current directory. 
+Try it for yourself! Simply type:
+    - "ls"
+into a separate terminal and see what happens!

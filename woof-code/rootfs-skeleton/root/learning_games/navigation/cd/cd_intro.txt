@@ -1,0 +1,15 @@
+This next command is called 'cd'. 
+Basically, it allows you to move through the file system.
+Now that you know 'pwd', which allows you to see your location ...
+... and you know 'ls', which shows you your options of where to go ...
+... you are ready to get movin'!
+ 
+In the same way you click on folders in Mac and Windows, you use cd to go up and down the file hierarchy in Linux.
+
+Let's jump right into it! Try navigating into one of the subdirectories in this folder.
+Start by using 'ls' to see where you can go, then simply type:
+    - cd [directory name]/
+For example, run the following line:
+    - cd introduction/
+
+Not that we don't trust you, but to prove you've done so, run pwd from your new directory and enter the output on the line below:
