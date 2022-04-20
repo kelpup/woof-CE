@@ -93,7 +93,7 @@ yes|cdparanoia|cdparanoia,libcdparanoia0,libcdparanoia-dev|exe,dev,doc,nls
 yes|cdrkit|genisoimage,wodim,icedax|exe,dev,doc,nls
 yes|cdrtools||exe,dev,doc,nls
 yes|chntpw|chntpw|exe,dev,doc,nls
-no|chromium||exe,dev,doc,nls
+yes|chromium||exe,dev,doc,nls
 yes|cifs-utils|cifs-utils|exe,dev,doc,nls
 yes|claws-mail|claws-mail,claws-mail-feeds-reader,claws-mail-multi-notifier,libcanberra-gtk0,libcompfaceg1,libcompfaceg1-dev,libetpan20,libetpan-dev,liblockfile1,liblockfile-bin,liblockfile-dev,libbluetooth3,libbluetooth-dev|exe,dev,doc,nls
 yes|clipit||exe|
@@ -246,8 +246,8 @@ yes|gparted|gparted|exe,dev>null,doc,nls
 yes|gpart|gpart|exe,dev,doc,nls| #useful utility used by gparted.
 yes|gparted|gparted|exe,dev>null,doc,nls| #/sbin/blkid is necessary for gparted to display information--it is in Lupu_Utilitiesw
 yes|gperf|gperf|exe,dev,doc,nls|
-yes|gphoto2|gphoto2|exe,dev,doc,nls
-yes|gphotofs|gphotofs|exe,dev,doc,nls
+no|gphoto2|gphoto2|exe,dev,doc,nls
+no|gphotofs|gphotofs|exe,dev,doc,nls
 no|gpick|gpick|exe,dev,doc,nls
 yes|gplanarity|gplanarity|exe
 yes|gpm|libgpm2|exe,dev>null,doc,nls| #needed by mplayer, gphoto2.
@@ -618,7 +618,7 @@ yes|ots|libots0,libots-dev|exe,dev,doc,nls
 yes|p11-kit|libp11-kit0,libp11-kit-dev|exe,dev,doc,nls| #needed by cupsd (ubuntu cups pkg). 121210 need dev pkg for gnutls, refer forum t=82092&start=135
 yes|p7zip-full|p7zip-full|exe,dev,doc,nls
 yes|PackIt||exe,dev,doc,nls|
-yes|palemoon||exe,dev,doc,nls
+no|palemoon||exe,dev,doc,nls
 yes|pam|libpam0g,libpam0g-dev,libpam-modules|exe,dev,doc,nls|
 yes|pango|libpango-1.0-0,libpango1.0-dev,libpangoft2-1.0-0,libpangocairo-1.0-0,libpangox-1.0-0,libpangoxft-1.0-0,gir1.2-pango-1.0|exe,dev,doc,nls
 yes|pangomm|libpangomm-1.4-1v5,libpangomm-1.4-dev|exe,dev,doc,nls
@@ -807,8 +807,8 @@ no|xarchive||exe
 yes|xauth|xauth|exe,dev,doc,nls| #ADDED 20150717-08
 yes|xaw3d|xaw3dg|exe,dev,doc,nls| #ADDED 20151025. xvkbd uses this. leave out xaw3dg-dev
 yes|xclip|xclip|exe,dev,doc,nls|
-yes|xcowsay|fortune-mod,librecode0|exe,dev,doc,nls|
-yes|xcowsay||exe,dev,doc,nls|
+no|xcowsay|fortune-mod,librecode0|exe,dev,doc,nls|
+no|xcowsay||exe,dev,doc,nls|
 no|xcur2png||exe
 no|xdelta||exe
 no|xdg_puppy||exe|
