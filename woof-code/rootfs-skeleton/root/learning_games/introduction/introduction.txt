@@ -1,0 +1,7 @@
+Welcome to the Kelpup introductory game!
+We are so glad you have chosen to learn a little bit about linux, and hope you find our distribution easy and fun!
+As you can tell, a big part of using Linux is being able to navigate the command line, 
+so we'll start by teaching you the basics and going from there. 
+Do you feel you need a tutorial on the file structure and navigate features of Linux?
+    Y.) I am completely new! Teach me Senpie. 
+    N.) I am an old pro, let's move on to the fun stuff. 
